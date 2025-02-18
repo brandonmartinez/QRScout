@@ -45,7 +45,13 @@ jobs:
         with:
           include: 'src/store/store.ts'
           find: '../../config/2025/config.json'
-          replace: '../../config/2025/7160-config.json'         
+          replace: '../../config/2025/7160-config.json'
+      - name: Remove Logo
+        uses: jacobtomlinson/gha-find-replace@3.0.5
+        with:
+          include: 'src/components/Footer.tsx'
+          find: '<Logo />'
+          replace: ''
       - name: Build
         run: npm run build
       - name: Setup Pages
