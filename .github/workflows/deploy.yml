@@ -46,7 +46,13 @@ jobs:
           include: 'src/store/store.ts'
           find: '../../config/2025/config.json'
           replace: '../../config/2025/7160-config.json'
-      - name: Remove Logo
+      - name: Remove Logo Import
+        uses: jacobtomlinson/gha-find-replace@3.0.5
+        with:
+          include: 'src/components/Footer.tsx'
+          find: "import { Logo } from './Logo';"
+          replace: ''
+      - name: Remove Logo Entry
         uses: jacobtomlinson/gha-find-replace@3.0.5
         with:
           include: 'src/components/Footer.tsx'
